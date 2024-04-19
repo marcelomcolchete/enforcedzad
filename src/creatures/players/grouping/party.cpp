@@ -491,10 +491,6 @@ SharedExpStatus_t Party::getMemberSharedExperienceStatus(std::shared_ptr<Player>
 	return SHAREDEXP_OK;
 }
 
-float Party::shareRangeMultiplier() const {
-	return g_configManager().getFloat(PARTY_SHARE_RANGE_MULTIPLIER, __FUNCTION__);
-}
-
 uint32_t Party::getHighestLevel() {
 	auto leader = getLeader();
 	if (!leader) {
@@ -511,7 +507,7 @@ uint32_t Party::getHighestLevel() {
 }
 
 uint32_t Party::getMinLevel() {
-	return static_cast<uint32_t>(std::ceil(static_cast<float>(getHighestLevel()) / shareRangeMultiplier()));
+	return static_cast<uint32_t>(std::ceil((static_cast<float>(getHighestLevel()) * 2) / 3));
 }
 
 uint32_t Party::getLowestLevel() {
@@ -529,7 +525,7 @@ uint32_t Party::getLowestLevel() {
 }
 
 uint32_t Party::getMaxLevel() {
-	return static_cast<uint32_t>(std::floor(static_cast<float>(getLowestLevel()) * shareRangeMultiplier()));
+	return static_cast<uint32_t>(std::floor((static_cast<float>(getLowestLevel()) * 3) / 2));
 }
 
 bool Party::isPlayerActive(std::shared_ptr<Player> player) {
@@ -537,6 +533,7 @@ bool Party::isPlayerActive(std::shared_ptr<Player> player) {
 	if (it == ticksMap.end()) {
 		return false;
 	}
+
 	uint64_t timeDiff = OTSYS_TIME() - it->second;
 	return timeDiff <= 2 * 60 * 1000;
 }

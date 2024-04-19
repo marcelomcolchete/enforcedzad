@@ -231,6 +231,7 @@ std::shared_ptr<Condition> Condition::createCondition(ConditionId_t id, Conditio
 		case CONDITION_FEARED:
 			return std::make_shared<ConditionFeared>(id, type, ticks, buff, subId);
 
+		case CONDITION_STUNNED:
 		case CONDITION_ROOTED:
 		case CONDITION_INFIGHT:
 		case CONDITION_DRUNK:

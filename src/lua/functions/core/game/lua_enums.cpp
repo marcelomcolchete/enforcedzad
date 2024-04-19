@@ -347,6 +347,7 @@ void LuaEnums::initConditionEnums(lua_State* L) {
 	registerEnum(L, CONDITION_SPELLGROUPCOOLDOWN);
 	registerEnum(L, CONDITION_ROOTED);
 	registerEnum(L, CONDITION_FEARED);
+	registerEnum(L, CONDITION_STUNNED);
 }
 
 void LuaEnums::initConditionIdEnums(lua_State* L) {
@@ -868,6 +869,7 @@ void LuaEnums::initItemIdEnums(lua_State* L) {
 	registerEnum(L, ITEM_PARCEL);
 	registerEnum(L, ITEM_PARCEL_STAMPED);
 	registerEnum(L, ITEM_LABEL);
+	registerEnum(L, ITEM_ICEFIELD_PVP_FULL);
 	registerEnum(L, ITEM_FIREFIELD_PVP_FULL);
 	registerEnum(L, ITEM_FIREFIELD_PVP_MEDIUM);
 	registerEnum(L, ITEM_FIREFIELD_PVP_SMALL);

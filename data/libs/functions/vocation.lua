@@ -9,6 +9,9 @@ VOCATION = {
 		ELDER_DRUID = 6,
 		ROYAL_PALADIN = 7,
 		ELITE_KNIGHT = 8,
+		SAMURAI = 9,
+		ARQUEIRO = 10,
+		ICEMAGE = 11
 	},
 	CLIENT_ID = {
 		NONE = 0,
@@ -20,6 +23,9 @@ VOCATION = {
 		ROYAL_PALADIN = 12,
 		MASTER_SORCERER = 13,
 		ELDER_DRUID = 14,
+		SAMURAI = 20,
+		ARQUEIRO = 21,
+		ICEMAGE = 22
 	},
 	BASE_ID = {
 		NONE = 0,
@@ -27,6 +33,9 @@ VOCATION = {
 		DRUID = 2,
 		PALADIN = 3,
 		KNIGHT = 4,
+		SAMURAI = 5,
+		ARQUEIRO = 6,
+		ICEMAGE = 7
 	},
 }
 

@@ -4344,6 +4344,8 @@ void Player::doAttacking(uint32_t) {
 	if (lastAttack == 0) {
 		lastAttack = OTSYS_TIME() - getAttackSpeed() - 1;
 	}
+	// Desabilita a função de auto attack
+	return;
 
 	if (hasCondition(CONDITION_PACIFIED)) {
 		return;

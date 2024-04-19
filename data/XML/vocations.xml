@@ -120,4 +120,34 @@
 		<gem quality="1" name="guardian gem" />
 		<gem quality="2" name="greater guardian gem" />
 	</vocation>
+	<vocation id="9" clientid="20" baseid="5" name="Samurai" description="a Samurai" magicshield="0" gaincap="2000" gainhp="0" gainmana="0" gainhpticks="4000" gainhpamount="1" gainmanaticks="6000" gainmanaamount="2" manamultiplier="3.0" attackspeed="2000" basespeed="130" soulmax="200" gainsoulticks="15000" fromvoc="9">
+		<formula meleeDamage="1.0" distDamage="1.0" defense="1.0" armor="1.0" />
+		<skill id="0" multiplier="1.1" />
+		<skill id="1" multiplier="1.1" />
+		<skill id="2" multiplier="1.1" />
+		<skill id="3" multiplier="1.1" />
+		<skill id="4" multiplier="1.4" />
+		<skill id="5" multiplier="1.1" />
+		<skill id="6" multiplier="1.1" />
+	</vocation>
+	<vocation id="10" clientid="21" baseid="6" name="Arqueiro" description="an Arqueiro" magicshield="0" gaincap="2000" gainhp="0" gainmana="0" gainhpticks="4000" gainhpamount="1" gainmanaticks="6000" gainmanaamount="2" manamultiplier="3.0" attackspeed="2000" basespeed="130" soulmax="200" gainsoulticks="15000" fromvoc="10">
+		<formula meleeDamage="1.0" distDamage="1.0" defense="1.0" armor="1.0" />
+		<skill id="0" multiplier="1.1" />
+		<skill id="1" multiplier="1.1" />
+		<skill id="2" multiplier="1.1" />
+		<skill id="3" multiplier="1.1" />
+		<skill id="4" multiplier="1.4" />
+		<skill id="5" multiplier="1.1" />
+		<skill id="6" multiplier="1.1" />
+	</vocation>
+	<vocation id="11" clientid="21" baseid="6" name="Ice Mage" description="an Ice Mage" magicshield="0" gaincap="2000" gainhp="0" gainmana="0" gainhpticks="4000" gainhpamount="1" gainmanaticks="6000" gainmanaamount="2" manamultiplier="3.0" attackspeed="2000" basespeed="130" soulmax="200" gainsoulticks="15000" fromvoc="11">
+		<formula meleeDamage="1.0" distDamage="1.0" defense="1.0" armor="1.0" />
+		<skill id="0" multiplier="1.1" />
+		<skill id="1" multiplier="1.1" />
+		<skill id="2" multiplier="1.1" />
+		<skill id="3" multiplier="1.1" />
+		<skill id="4" multiplier="1.4" />
+		<skill id="5" multiplier="1.1" />
+		<skill id="6" multiplier="1.1" />
+	</vocation>
 </vocations>

@@ -133,7 +133,6 @@ private:
 	uint32_t getLowestLevel();
 	uint32_t getMinLevel();
 	uint32_t getMaxLevel();
-	float shareRangeMultiplier() const;
 
 	std::map<uint32_t, int64_t> ticksMap;
 

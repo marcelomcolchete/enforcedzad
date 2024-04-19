@@ -1365,7 +1365,7 @@ ReturnValue Game::internalMoveCreature(std::shared_ptr<Creature> creature, Direc
 
 ReturnValue Game::internalMoveCreature(const std::shared_ptr<Creature> &creature, const std::shared_ptr<Tile> &toTile, uint32_t flags /*= 0*/) {
 	metrics::method_latency measure(__METHOD_NAME__);
-	if (creature->hasCondition(CONDITION_ROOTED)) {
+	if (creature->hasCondition(CONDITION_ROOTED) || creature->hasCondition(CONDITION_STUNNED)) {
 		return RETURNVALUE_NOTPOSSIBLE;
 	}
 
@@ -3155,6 +3155,13 @@ void Game::playerEquipItem(uint32_t playerId, uint16_t itemId, bool hasTier /* =
 	if (!player) {
 		return;
 	}
+	if (player->hasCondition(CONDITION_STUNNED)) {
+		/*
+		 *	When player is STUNNED the player can´t equip any items.
+		 */
+		player->sendTextMessage(MESSAGE_FAILURE, "You are Stunned.");
+		return;
+	}
 
 	if (player->hasCondition(CONDITION_FEARED)) {
 		/*
@@ -3448,7 +3455,7 @@ void Game::playerStopAutoWalk(uint32_t playerId) {
 void Game::playerUseItemEx(uint32_t playerId, const Position &fromPos, uint8_t fromStackPos, uint16_t fromItemId, const Position &toPos, uint8_t toStackPos, uint16_t toItemId) {
 	metrics::method_latency measure(__METHOD_NAME__);
 	std::shared_ptr<Player> player = getPlayerByID(playerId);
-	if (!player) {
+	if (!player || player->hasCondition(CONDITION_STUNNED)) {
 		return;
 	}
 
@@ -3586,7 +3593,7 @@ void Game::playerUseItemEx(uint32_t playerId, const Position &fromPos, uint8_t f
 void Game::playerUseItem(uint32_t playerId, const Position &pos, uint8_t stackPos, uint8_t index, uint16_t itemId) {
 	metrics::method_latency measure(__METHOD_NAME__);
 	std::shared_ptr<Player> player = getPlayerByID(playerId);
-	if (!player) {
+	if (!player || player->hasCondition(CONDITION_STUNNED)) {
 		return;
 	}
 
@@ -3690,6 +3697,14 @@ void Game::playerUseWithCreature(uint32_t playerId, const Position &fromPos, uin
 	metrics::method_latency measure(__METHOD_NAME__);
 	std::shared_ptr<Player> player = getPlayerByID(playerId);
 	if (!player) {
+		return;
+	}
+	if (player->hasCondition(CONDITION_STUNNED)) {
+		player->sendTextMessage(MESSAGE_FAILURE, "You are stunned.");
+		return;
+	}
+	if (player->hasCondition(CONDITION_FEARED)) {
+		player->sendTextMessage(MESSAGE_FAILURE, "You are feared.");
 		return;
 	}
 

@@ -221,8 +221,11 @@ bool Creature::getNextStep(Direction &dir, uint32_t &) {
 
 void Creature::startAutoWalk(const std::vector<Direction> &listDir, bool ignoreConditions /* = false*/) {
 	listWalkDir.clear();
-
-	if (!ignoreConditions && (hasCondition(CONDITION_ROOTED) || hasCondition(CONDITION_FEARED))) {
+	if (!ignoreConditions && (hasCondition(CONDITION_ROOTED) || hasCondition(CONDITION_FEARED) || hasCondition(CONDITION_STUNNED))) {
+		std::shared_ptr<Player> player = getPlayer();
+		if (player) {
+    player->sendCancelWalk();
+  	}
 		return;
 	}
 

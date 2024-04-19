@@ -385,6 +385,11 @@ bool Spell::playerSpellCheck(std::shared_ptr<Player> player) const {
 	if (player->hasFlag(PlayerFlags_t::CannotUseSpells)) {
 		return false;
 	}
+	if (player->hasCondition(CONDITION_STUNNED)) {
+		player->sendCancelMessage(RETURNVALUE_YOUAREEXHAUSTED);
+		g_game().addMagicEffect(player->getPosition(), CONST_ME_POFF);
+  		return false;
+	}
 
 	if (player->hasFlag(PlayerFlags_t::IgnoreSpellCheck)) {
 		return true;
